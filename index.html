@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Al Mahseri Jewellery - a luxury online jewellery store for fine gold, diamonds, bridal sets, and bespoke high jewellery."
+      content="Al Mahseri Jewellery - a luxury online jewellery store for gold, diamonds, bridal jewellery, gifts, and high jewellery."
     />
-    <title>Al Mahseri Jewellery | Luxury Fine Jewellery</title>
+    <title>Al Mahseri Jewellery | Online Fine Jewellery Store</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,14 +17,16 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="top-banner">Complimentary insured delivery on every fine jewellery order</div>
+    <div class="top-banner">
+      <span>Since 1984</span>
+      <strong>Complimentary insured delivery on every fine jewellery order</strong>
+      <a href="#boutiques">Find a boutique</a>
+    </div>
 
     <header class="site-header">
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#collections">Collections</a>
-        <a href="#shop">Shop</a>
-        <a href="#bespoke">Bespoke</a>
-      </nav>
+      <button class="icon-button menu-toggle" type="button" aria-expanded="false" data-menu-toggle>
+        Menu
+      </button>
 
       <a class="brand" href="#home" aria-label="Al Mahseri Jewellery home">
         <span class="brand-mark">AM</span>
@@ -34,63 +36,79 @@
         </span>
       </a>
 
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#collections">Collections</a>
+        <a href="#shop">Jewellery</a>
+        <a href="#high-jewellery">High Jewellery</a>
+        <a href="#gifts">Gifts</a>
+        <a href="#boutiques">Boutiques</a>
+      </nav>
+
       <div class="header-actions">
-        <a href="#visit">Private viewing</a>
+        <button class="icon-button" type="button" data-search-toggle>Search</button>
+        <a href="#account">Sign in</a>
+        <a href="#wishlist">Wishlist <span data-wishlist-count>0</span></a>
         <button class="icon-button" type="button" aria-controls="cart-drawer" aria-expanded="false" data-cart-open>
           Bag
           <span class="cart-count" data-cart-count>0</span>
         </button>
       </div>
-
-      <button class="icon-button menu-toggle" type="button" aria-expanded="false" data-menu-toggle>
-        Menu
-      </button>
     </header>
+
+    <section class="catalog-nav" aria-label="Store categories">
+      <a href="#shop" data-jump-filter="Rings">Rings</a>
+      <a href="#shop" data-jump-filter="Earrings">Earrings</a>
+      <a href="#shop" data-jump-filter="Necklaces">Necklaces</a>
+      <a href="#shop" data-jump-filter="Bracelets">Bracelets</a>
+      <a href="#shop" data-jump-filter="Bridal">Wedding</a>
+      <a href="#shop" data-jump-filter="High Jewellery">High Jewellery</a>
+      <a href="#gifts" data-jump-filter="Gifts">Gifts</a>
+      <a href="#boutiques">Locations</a>
+    </section>
 
     <main id="home">
       <section class="hero">
         <div class="hero-content">
           <p class="eyebrow">Luxury gold, diamonds, fine jewellery</p>
-          <h1>Jewellery made for moments that become heirlooms.</h1>
+          <h1>Online jewellery with boutique-level service.</h1>
           <p>
-            Discover Al Mahseri Jewellery's curated world of luminous diamonds,
-            sculptural gold, bridal suites, and bespoke pieces crafted for life's most
-            elegant occasions.
+            Explore Al Mahseri Jewellery's collections by occasion, category, and craft:
+            diamond essentials, 18k gold icons, bridal suites, gifts, and high jewellery.
           </p>
           <div class="hero-actions">
-            <a class="btn primary" href="#shop">Shop fine jewellery</a>
-            <a class="btn secondary" href="#bespoke">Book a private consultation</a>
+            <a class="btn primary" href="#shop">Shop jewellery</a>
+            <a class="btn secondary" href="#boutiques">Find a boutique</a>
           </div>
         </div>
       </section>
 
       <section class="trust-strip" aria-label="Shopping promises">
         <div class="trust-item">
-          <strong>18k & 22k</strong>
-          <span>Precious gold</span>
+          <strong>1 year</strong>
+          <span>Care protection</span>
         </div>
         <div class="trust-item">
-          <strong>GIA</strong>
-          <span>Certified diamonds</span>
+          <strong>JOD</strong>
+          <span>Transparent pricing</span>
         </div>
         <div class="trust-item">
           <strong>Secure</strong>
           <span>Concierge checkout</span>
         </div>
         <div class="trust-item">
-          <strong>Insured</strong>
-          <span>Worldwide delivery</span>
+          <strong>Private</strong>
+          <span>Boutique appointments</span>
         </div>
       </section>
 
       <section class="section" id="collections">
         <div class="section-header">
           <div>
-            <p class="eyebrow">Signature collections</p>
-            <h2 class="section-heading">A refined edit of brilliance, gold, and ceremony.</h2>
+            <p class="eyebrow">Discover collections</p>
+            <h2 class="section-heading">Shop by story, occasion, and signature motif.</h2>
             <p class="section-copy">
-              Every piece is selected for exceptional materials, graceful proportions, and lasting
-              wearability, from everyday diamond essentials to complete bridal suites.
+              Inspired by established online jewellery houses, the store is organized into
+              clear collections, product categories, wedding edits, high jewellery, and gifts.
             </p>
           </div>
         </div>
@@ -99,11 +117,13 @@
           <article class="collection-card">
             <img
               src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=80"
-              alt="Diamond engagement ring on a neutral jewellery display"
+              alt="Diamond engagement ring on a jewellery display"
             />
             <div class="collection-card-content">
-              <h3>Diamond Bridal</h3>
-              <p>Engagement rings and ceremonial sets with certified stones.</p>
+              <span>New collection</span>
+              <h3>Reflection of Light</h3>
+              <p>Diamond rings, earrings, and pendants for luminous everyday wear.</p>
+              <button class="text-link" type="button" data-jump-filter="Diamonds">Discover</button>
             </div>
           </article>
           <article class="collection-card">
@@ -112,18 +132,22 @@
               alt="Gold bracelets and necklaces arranged on velvet"
             />
             <div class="collection-card-content">
-              <h3>Gold Heritage</h3>
-              <p>Warm 18k and 22k gold pieces shaped for modern elegance.</p>
+              <span>Heritage</span>
+              <h3>Mahseri Gold Icons</h3>
+              <p>Stacking bangles, cuffs, pendants, and warm gold essentials.</p>
+              <button class="text-link" type="button" data-jump-filter="Gold">Discover</button>
             </div>
           </article>
-          <article class="collection-card">
+          <article class="collection-card" id="high-jewellery">
             <img
               src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=80"
-              alt="Luxury necklace and jewellery set with gemstones"
+              alt="Luxury necklace and gemstone jewellery set"
             />
             <div class="collection-card-content">
-              <h3>High Jewellery</h3>
-              <p>Statement necklaces, bracelets, and sets for grand occasions.</p>
+              <span>High jewellery</span>
+              <h3>Royal Noor Suites</h3>
+              <p>Statement necklaces, bracelets, rings, and full ceremonial sets.</p>
+              <button class="text-link" type="button" data-jump-filter="High Jewellery">Discover</button>
             </div>
           </article>
         </div>
@@ -132,58 +156,134 @@
       <section class="section shop" id="shop">
         <div class="section-header">
           <div>
-            <p class="eyebrow">Shop online</p>
-            <h2 class="section-heading">Featured fine jewellery</h2>
+            <p class="eyebrow">Online store</p>
+            <h2 class="section-heading">Fine jewellery catalog</h2>
             <p class="section-copy">
-              Add pieces to your bag and continue to a private checkout experience designed for
-              luxury purchases and concierge support.
+              Browse by category or search by product, SKU, material, collection, or occasion.
+              Each card includes stock status and quick-view details.
             </p>
           </div>
         </div>
 
-        <div class="shop-toolbar">
-          <div class="filters" aria-label="Filter products">
-            <button class="filter-button active" type="button" data-filter="All">All</button>
-            <button class="filter-button" type="button" data-filter="Diamonds">Diamonds</button>
-            <button class="filter-button" type="button" data-filter="Gold">Gold</button>
-            <button class="filter-button" type="button" data-filter="Bridal">Bridal</button>
-          </div>
-          <label class="sort-control">
-            Sort
-            <select name="sort" data-sort>
-              <option value="featured">Featured</option>
-              <option value="price-asc">Price: low to high</option>
-              <option value="price-desc">Price: high to low</option>
-            </select>
-          </label>
-        </div>
+        <div class="store-layout" id="wishlist">
+          <aside class="category-panel" aria-label="Product categories">
+            <h3>Categories</h3>
+            <button class="filter-button active" type="button" data-filter="All">All jewellery</button>
+            <button class="filter-button" type="button" data-filter="Rings">Rings</button>
+            <button class="filter-button" type="button" data-filter="Earrings">Earrings</button>
+            <button class="filter-button" type="button" data-filter="Necklaces">Necklaces</button>
+            <button class="filter-button" type="button" data-filter="Bracelets">Bracelets</button>
+            <button class="filter-button" type="button" data-filter="Bridal">Wedding</button>
+            <button class="filter-button" type="button" data-filter="High Jewellery">High Jewellery</button>
+            <button class="filter-button" type="button" data-filter="Gifts">Gifts</button>
 
-        <div class="product-grid" data-product-grid></div>
+            <div class="mini-menu">
+              <h4>Collections</h4>
+              <a href="#shop" data-jump-filter="Diamonds">Reflection of Light</a>
+              <a href="#shop" data-jump-filter="Gold">Gold Icons</a>
+              <a href="#shop" data-jump-filter="Bridal">Wedding 26</a>
+              <a href="#shop" data-jump-filter="Gifts">Perfect for every occasion</a>
+            </div>
+          </aside>
+
+          <div class="store-main">
+            <div class="shop-toolbar">
+              <label class="search-field">
+                <span>Search</span>
+                <input type="search" name="search" placeholder="Search rings, SKU, diamonds..." data-search-input />
+              </label>
+              <label class="sort-control">
+                Sort
+                <select name="sort" data-sort>
+                  <option value="featured">Featured</option>
+                  <option value="price-asc">Price: low to high</option>
+                  <option value="price-desc">Price: high to low</option>
+                  <option value="newest">Newest</option>
+                </select>
+              </label>
+            </div>
+            <div class="result-row">
+              <p data-result-count></p>
+              <button class="text-link" type="button" data-clear-search>Clear search</button>
+            </div>
+            <div class="product-grid" data-product-grid></div>
+          </div>
+        </div>
       </section>
 
-      <section class="section bespoke" id="bespoke">
+      <section class="section split-feature" id="gifts">
         <div>
-          <p class="eyebrow">Bespoke atelier</p>
-          <h2 class="section-heading">Commission jewellery with a private specialist.</h2>
+          <p class="eyebrow">Gifts</p>
+          <h2 class="section-heading">Perfect for every occasion.</h2>
           <p class="section-copy">
-            From selecting investment diamonds to designing a complete bridal suite, Al Mahseri
-            Jewellery offers discreet guidance from first sketch to final presentation.
+            Curated gift edits for her, for him, graduation, anniversaries, newborn celebrations,
+            and private milestones.
           </p>
-          <div class="hero-actions">
-            <a class="btn secondary" href="#visit">Request appointment</a>
+          <div class="pill-row">
+            <button type="button" data-jump-filter="Gifts">For her</button>
+            <button type="button" data-jump-filter="Gifts">For him</button>
+            <button type="button" data-jump-filter="Gifts">Graduation</button>
+            <button type="button" data-jump-filter="Gifts">Gift cards</button>
           </div>
         </div>
+        <div class="look-card">
+          <img
+            src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=80"
+            alt="Gold pendant necklace styled as a gift"
+          />
+          <div>
+            <span>Get the look</span>
+            <h3>Layered diamond and gold pendants</h3>
+            <button class="text-link" type="button" data-jump-filter="Necklaces">Shop necklaces</button>
+          </div>
+        </div>
+      </section>
 
-        <div class="appointment-card" id="visit">
-          <h3>Reserve a viewing</h3>
+      <section class="section boutiques" id="boutiques">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Our boutiques</p>
+            <h2 class="section-heading">Find the Al Mahseri store nearest to you.</h2>
+          </div>
+        </div>
+        <div class="boutique-grid">
+          <article>
+            <h3>Amman - Um Uthaina</h3>
+            <p>Saturday - Thursday: 10:00 AM - 8:30 PM</p>
+            <a href="tel:+96265511120">+962 6 551 1120</a>
+          </article>
+          <article>
+            <h3>Amman - City Mall</h3>
+            <p>Saturday - Thursday: 10:00 AM - 10:00 PM<br />Friday: 2:00 PM - 10:00 PM</p>
+            <a href="tel:+96265826592">+962 6 582 6592</a>
+          </article>
+          <article>
+            <h3>Dubai - Deira</h3>
+            <p>Monday - Thursday: 9:30 AM - 6:00 PM</p>
+            <a href="tel:+97143317779">+971 4 331 7779</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section bespoke" id="appointment">
+        <div>
+          <p class="eyebrow">Private service</p>
+          <h2 class="section-heading">Reserve a viewing or commission bespoke jewellery.</h2>
+          <p class="section-copy">
+            From investment diamonds to bridal suites, a specialist can guide selection,
+            sizing, engraving, gifting, and insured delivery.
+          </p>
+        </div>
+        <div class="appointment-card">
+          <h3>Request appointment</h3>
           <form data-appointment-form>
             <input type="text" name="name" placeholder="Full name" required />
             <input type="email" name="email" placeholder="Email address" required />
             <select name="interest" required>
               <option value="">Select your interest</option>
               <option>Engagement rings</option>
-              <option>Diamond jewellery</option>
-              <option>Gold sets</option>
+              <option>High jewellery</option>
+              <option>Gold gifts</option>
               <option>Bespoke commission</option>
             </select>
             <textarea name="message" placeholder="Tell us what you are looking for"></textarea>
@@ -193,78 +293,64 @@
         </div>
       </section>
 
-      <section class="section">
-        <div class="section-header">
-          <div>
-            <p class="eyebrow">The Al Mahseri standard</p>
-            <h2 class="section-heading">Everything expected from a high jewellery house.</h2>
-          </div>
-        </div>
-        <div class="journal-grid">
-          <article class="journal-card">
-            <img
-              src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=900&q=80"
-              alt="Jewellery specialist inspecting a necklace"
-            />
-            <div>
-              <h3>Authentication</h3>
-              <p>Certificates, stone details, and care guidance accompany every qualifying piece.</p>
-            </div>
-          </article>
-          <article class="journal-card">
-            <img
-              src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=900&q=80"
-              alt="Luxury jewellery box prepared for gifting"
-            />
-            <div>
-              <h3>Presentation</h3>
-              <p>Each order arrives in refined packaging suitable for gifting and celebrations.</p>
-            </div>
-          </article>
-          <article class="journal-card">
-            <img
-              src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=900&q=80"
-              alt="Diamond earrings on a warm background"
-            />
-            <div>
-              <h3>Lifetime care</h3>
-              <p>Professional cleaning, resizing guidance, and aftercare support are available.</p>
-            </div>
-          </article>
-        </div>
+      <section class="benefits" aria-label="Customer benefits">
+        <article>
+          <strong>01</strong>
+          <h3>Exchange & refund</h3>
+          <p>Eligible items can be exchanged or refunded according to the purchase terms.</p>
+        </article>
+        <article>
+          <strong>02</strong>
+          <h3>Loyalty card</h3>
+          <p>Collect points in-store and unlock private previews, cleaning, and care services.</p>
+        </article>
+        <article>
+          <strong>03</strong>
+          <h3>Insurance</h3>
+          <p>Qualifying purchases include one year of care protection and insured delivery.</p>
+        </article>
       </section>
     </main>
 
-    <footer class="site-footer">
+    <footer class="site-footer" id="account">
       <div class="footer-grid">
         <div>
           <div class="footer-logo">
             <span class="brand-mark">AM</span>
             <strong>Al Mahseri Jewellery</strong>
           </div>
-          <p>Luxury gold, diamonds, bridal suites, and bespoke fine jewellery.</p>
+          <p>Luxury gold, diamonds, bridal suites, gifts, and bespoke fine jewellery.</p>
+          <div class="social-row">
+            <a href="#home">Instagram</a>
+            <a href="#home">Facebook</a>
+            <a href="#home">YouTube</a>
+            <a href="#home">LinkedIn</a>
+          </div>
         </div>
         <div>
-          <h3>Shop</h3>
+          <h3>Jewellery</h3>
           <ul>
-            <li><a href="#shop">Rings</a></li>
-            <li><a href="#shop">Necklaces</a></li>
-            <li><a href="#shop">Bracelets</a></li>
+            <li><a href="#shop" data-jump-filter="Rings">Rings</a></li>
+            <li><a href="#shop" data-jump-filter="Earrings">Earrings</a></li>
+            <li><a href="#shop" data-jump-filter="Necklaces">Necklaces</a></li>
+            <li><a href="#shop" data-jump-filter="Bracelets">Bracelets</a></li>
           </ul>
         </div>
         <div>
-          <h3>Services</h3>
+          <h3>Collections</h3>
           <ul>
-            <li><a href="#bespoke">Bespoke</a></li>
-            <li><a href="#visit">Private viewing</a></li>
-            <li><a href="#shop">Secure checkout</a></li>
+            <li><a href="#shop" data-jump-filter="Diamonds">Reflection of Light</a></li>
+            <li><a href="#shop" data-jump-filter="Gold">Gold Icons</a></li>
+            <li><a href="#shop" data-jump-filter="High Jewellery">Royal Noor</a></li>
+            <li><a href="#gifts">Gifts</a></li>
           </ul>
         </div>
         <div>
-          <h3>Private previews</h3>
+          <h3>Newsletter</h3>
+          <p>Subscribe for collection launches, boutique events, and private previews.</p>
           <form class="newsletter" data-newsletter-form>
             <input type="email" name="email" placeholder="Email address" required />
-            <button class="btn primary" type="submit">Join</button>
+            <button class="btn primary" type="submit">Subscribe</button>
           </form>
           <p class="checkout-note" data-newsletter-message></p>
         </div>
@@ -288,7 +374,7 @@
       <div class="cart-footer">
         <div class="cart-row">
           <span>Subtotal</span>
-          <strong data-cart-total>$0</strong>
+          <strong data-cart-total>0 JOD</strong>
         </div>
         <button class="btn primary" type="button" data-checkout>Proceed to secure checkout</button>
         <p class="checkout-note" data-checkout-note>
@@ -296,6 +382,11 @@
         </p>
       </div>
     </aside>
+
+    <dialog class="quick-view" data-quick-view>
+      <button class="cart-close" type="button" aria-label="Close quick view" data-quick-close>&times;</button>
+      <div data-quick-content></div>
+    </dialog>
 
     <div class="toast" role="status" aria-live="polite" data-toast></div>
     <script src="script.js"></script>
