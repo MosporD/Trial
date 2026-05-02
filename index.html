@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Al Mahseri Jewellery - a luxury online jewellery store for fine gold, diamonds, bridal sets, and bespoke high jewellery."
+    />
+    <title>Al Mahseri Jewellery | Luxury Fine Jewellery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="top-banner">Complimentary insured delivery on every fine jewellery order</div>
+
+    <header class="site-header">
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#collections">Collections</a>
+        <a href="#shop">Shop</a>
+        <a href="#bespoke">Bespoke</a>
+      </nav>
+
+      <a class="brand" href="#home" aria-label="Al Mahseri Jewellery home">
+        <span class="brand-mark">AM</span>
+        <span class="brand-text">
+          <span class="brand-title">Al Mahseri</span>
+          <span class="brand-subtitle">Jewellery</span>
+        </span>
+      </a>
+
+      <div class="header-actions">
+        <a href="#visit">Private viewing</a>
+        <button class="icon-button" type="button" aria-controls="cart-drawer" aria-expanded="false" data-cart-open>
+          Bag
+          <span class="cart-count" data-cart-count>0</span>
+        </button>
+      </div>
+
+      <button class="icon-button menu-toggle" type="button" aria-expanded="false" data-menu-toggle>
+        Menu
+      </button>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">Luxury gold, diamonds, fine jewellery</p>
+          <h1>Jewellery made for moments that become heirlooms.</h1>
+          <p>
+            Discover Al Mahseri Jewellery's curated world of luminous diamonds,
+            sculptural gold, bridal suites, and bespoke pieces crafted for life's most
+            elegant occasions.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#shop">Shop fine jewellery</a>
+            <a class="btn secondary" href="#bespoke">Book a private consultation</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-strip" aria-label="Shopping promises">
+        <div class="trust-item">
+          <strong>18k & 22k</strong>
+          <span>Precious gold</span>
+        </div>
+        <div class="trust-item">
+          <strong>GIA</strong>
+          <span>Certified diamonds</span>
+        </div>
+        <div class="trust-item">
+          <strong>Secure</strong>
+          <span>Concierge checkout</span>
+        </div>
+        <div class="trust-item">
+          <strong>Insured</strong>
+          <span>Worldwide delivery</span>
+        </div>
+      </section>
+
+      <section class="section" id="collections">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Signature collections</p>
+            <h2 class="section-heading">A refined edit of brilliance, gold, and ceremony.</h2>
+            <p class="section-copy">
+              Every piece is selected for exceptional materials, graceful proportions, and lasting
+              wearability, from everyday diamond essentials to complete bridal suites.
+            </p>
+          </div>
+        </div>
+
+        <div class="collection-grid">
+          <article class="collection-card">
+            <img
+              src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=80"
+              alt="Diamond engagement ring on a neutral jewellery display"
+            />
+            <div class="collection-card-content">
+              <h3>Diamond Bridal</h3>
+              <p>Engagement rings and ceremonial sets with certified stones.</p>
+            </div>
+          </article>
+          <article class="collection-card">
+            <img
+              src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?auto=format&fit=crop&w=900&q=80"
+              alt="Gold bracelets and necklaces arranged on velvet"
+            />
+            <div class="collection-card-content">
+              <h3>Gold Heritage</h3>
+              <p>Warm 18k and 22k gold pieces shaped for modern elegance.</p>
+            </div>
+          </article>
+          <article class="collection-card">
+            <img
+              src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=80"
+              alt="Luxury necklace and jewellery set with gemstones"
+            />
+            <div class="collection-card-content">
+              <h3>High Jewellery</h3>
+              <p>Statement necklaces, bracelets, and sets for grand occasions.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section shop" id="shop">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Shop online</p>
+            <h2 class="section-heading">Featured fine jewellery</h2>
+            <p class="section-copy">
+              Add pieces to your bag and continue to a private checkout experience designed for
+              luxury purchases and concierge support.
+            </p>
+          </div>
+        </div>
+
+        <div class="shop-toolbar">
+          <div class="filters" aria-label="Filter products">
+            <button class="filter-button active" type="button" data-filter="All">All</button>
+            <button class="filter-button" type="button" data-filter="Diamonds">Diamonds</button>
+            <button class="filter-button" type="button" data-filter="Gold">Gold</button>
+            <button class="filter-button" type="button" data-filter="Bridal">Bridal</button>
+          </div>
+          <label class="sort-control">
+            Sort
+            <select name="sort" data-sort>
+              <option value="featured">Featured</option>
+              <option value="price-asc">Price: low to high</option>
+              <option value="price-desc">Price: high to low</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="product-grid" data-product-grid></div>
+      </section>
+
+      <section class="section bespoke" id="bespoke">
+        <div>
+          <p class="eyebrow">Bespoke atelier</p>
+          <h2 class="section-heading">Commission jewellery with a private specialist.</h2>
+          <p class="section-copy">
+            From selecting investment diamonds to designing a complete bridal suite, Al Mahseri
+            Jewellery offers discreet guidance from first sketch to final presentation.
+          </p>
+          <div class="hero-actions">
+            <a class="btn secondary" href="#visit">Request appointment</a>
+          </div>
+        </div>
+
+        <div class="appointment-card" id="visit">
+          <h3>Reserve a viewing</h3>
+          <form data-appointment-form>
+            <input type="text" name="name" placeholder="Full name" required />
+            <input type="email" name="email" placeholder="Email address" required />
+            <select name="interest" required>
+              <option value="">Select your interest</option>
+              <option>Engagement rings</option>
+              <option>Diamond jewellery</option>
+              <option>Gold sets</option>
+              <option>Bespoke commission</option>
+            </select>
+            <textarea name="message" placeholder="Tell us what you are looking for"></textarea>
+            <button class="btn primary" type="submit">Request private appointment</button>
+            <p class="checkout-note" data-appointment-message></p>
+          </form>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">The Al Mahseri standard</p>
+            <h2 class="section-heading">Everything expected from a high jewellery house.</h2>
+          </div>
+        </div>
+        <div class="journal-grid">
+          <article class="journal-card">
+            <img
+              src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=900&q=80"
+              alt="Jewellery specialist inspecting a necklace"
+            />
+            <div>
+              <h3>Authentication</h3>
+              <p>Certificates, stone details, and care guidance accompany every qualifying piece.</p>
+            </div>
+          </article>
+          <article class="journal-card">
+            <img
+              src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=900&q=80"
+              alt="Luxury jewellery box prepared for gifting"
+            />
+            <div>
+              <h3>Presentation</h3>
+              <p>Each order arrives in refined packaging suitable for gifting and celebrations.</p>
+            </div>
+          </article>
+          <article class="journal-card">
+            <img
+              src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=900&q=80"
+              alt="Diamond earrings on a warm background"
+            />
+            <div>
+              <h3>Lifetime care</h3>
+              <p>Professional cleaning, resizing guidance, and aftercare support are available.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">
+            <span class="brand-mark">AM</span>
+            <strong>Al Mahseri Jewellery</strong>
+          </div>
+          <p>Luxury gold, diamonds, bridal suites, and bespoke fine jewellery.</p>
+        </div>
+        <div>
+          <h3>Shop</h3>
+          <ul>
+            <li><a href="#shop">Rings</a></li>
+            <li><a href="#shop">Necklaces</a></li>
+            <li><a href="#shop">Bracelets</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Services</h3>
+          <ul>
+            <li><a href="#bespoke">Bespoke</a></li>
+            <li><a href="#visit">Private viewing</a></li>
+            <li><a href="#shop">Secure checkout</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Private previews</h3>
+          <form class="newsletter" data-newsletter-form>
+            <input type="email" name="email" placeholder="Email address" required />
+            <button class="btn primary" type="submit">Join</button>
+          </form>
+          <p class="checkout-note" data-newsletter-message></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span data-year></span> Al Mahseri Jewellery. All rights reserved.</p>
+        <p>Concierge: hello@almahseri.example</p>
+      </div>
+    </footer>
+
+    <div class="cart-overlay" data-cart-close></div>
+    <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping cart" aria-hidden="true" data-cart-drawer>
+      <div class="cart-header">
+        <div>
+          <p class="eyebrow">Your selection</p>
+          <h2>Shopping bag</h2>
+        </div>
+        <button class="cart-close" type="button" aria-label="Close cart" data-cart-close>&times;</button>
+      </div>
+      <div class="cart-items" data-cart-items></div>
+      <div class="cart-footer">
+        <div class="cart-row">
+          <span>Subtotal</span>
+          <strong data-cart-total>$0</strong>
+        </div>
+        <button class="btn primary" type="button" data-checkout>Proceed to secure checkout</button>
+        <p class="checkout-note" data-checkout-note>
+          Taxes, insured delivery, and concierge payment options are confirmed at checkout.
+        </p>
+      </div>
+    </aside>
+
+    <div class="toast" role="status" aria-live="polite" data-toast></div>
+    <script src="script.js"></script>
+  </body>
+</html>
