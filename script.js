@@ -66,6 +66,14 @@ const newsletterForms = document.querySelectorAll("[data-newsletter-form]");
 const yearTargets = document.querySelectorAll("[data-year]");
 const panelToggle = document.querySelector("[data-panel-toggle]");
 const sidePanel = document.querySelector("[data-left-panel]");
+const hotProductPanel = document.querySelector("[data-hot-product-panel]");
+const hotProductImage = document.querySelector("[data-hot-product-image]");
+const hotProductKicker = document.querySelector("[data-hot-product-kicker]");
+const hotProductName = document.querySelector("[data-hot-product-name]");
+const hotProductDetail = document.querySelector("[data-hot-product-detail]");
+const hotProductPrice = document.querySelector("[data-hot-product-price]");
+const hotProductAdd = document.querySelector("[data-hot-product-add]");
+const hotProductDots = document.querySelector("[data-hot-product-dots]");
 
 const formatCurrency = (value) =>
   new Intl.NumberFormat("en-JO", {
@@ -73,6 +81,32 @@ const formatCurrency = (value) =>
     currency: "JOD",
     maximumFractionDigits: 0,
   }).format(value);
+
+const hotProducts = [
+  {
+    kicker: "Hot now",
+    name: "Solitaire Diamond Ring",
+    detail: "GIA diamond set in 18k yellow gold.",
+    price: 3440,
+    image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1000&q=80",
+  },
+  {
+    kicker: "Limited edit",
+    name: "Diamond Tennis Bracelet",
+    detail: "White gold bracelet with 4.2ct diamonds.",
+    price: 6530,
+    image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=1000&q=80",
+  },
+  {
+    kicker: "New arrival",
+    name: "Pear Diamond Earrings",
+    detail: "Pear-cut diamonds with a clean white gold setting.",
+    price: 2590,
+    image: "https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=1000&q=80",
+  },
+];
+
+let activeHotProduct = 0;
 
 function visibleProducts() {
   const visible =
@@ -144,6 +178,49 @@ function renderCart() {
   cartTotal.textContent = formatCurrency(total);
 }
 
+function addProductToCart(product) {
+  const existing = state.cart.find((item) => item.name === product.name);
+
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    state.cart.push({ ...product, quantity: 1 });
+  }
+
+  if (checkoutNote) checkoutNote.textContent = "";
+  renderCart();
+  openCart();
+}
+
+function renderHotProduct(index) {
+  if (!hotProductPanel) return;
+
+  const product = hotProducts[index];
+  hotProductPanel.classList.add("is-changing");
+
+  window.setTimeout(() => {
+    hotProductImage.style.backgroundImage = `linear-gradient(180deg, rgba(27, 24, 20, 0.02), rgba(27, 24, 20, 0.34)), url("${product.image}")`;
+    hotProductKicker.textContent = product.kicker;
+    hotProductName.textContent = product.name;
+    hotProductDetail.textContent = product.detail;
+    hotProductPrice.textContent = formatCurrency(product.price);
+    hotProductAdd.dataset.hotProductAdd = String(index);
+
+    if (hotProductDots) {
+      hotProductDots.innerHTML = hotProducts
+        .map(
+          (_, dotIndex) =>
+            `<button type="button" aria-label="Show hot product ${dotIndex + 1}" data-hot-product-dot="${dotIndex}" ${
+              dotIndex === index ? 'class="active"' : ""
+            }></button>`
+        )
+        .join("");
+    }
+
+    hotProductPanel.classList.remove("is-changing");
+  }, 140);
+}
+
 function openCart() {
   if (!cartDrawer || !cartButton) return;
   document.body.classList.add("cart-open");
@@ -179,17 +256,7 @@ if (productGrid) {
     if (!addButton) return;
 
     const product = visibleProducts()[Number(addButton.dataset.addToCart)];
-    const existing = state.cart.find((item) => item.name === product.name);
-
-    if (existing) {
-      existing.quantity += 1;
-    } else {
-      state.cart.push({ ...product, quantity: 1 });
-    }
-
-    if (checkoutNote) checkoutNote.textContent = "";
-    renderCart();
-    openCart();
+    addProductToCart(product);
   });
 }
 
@@ -220,6 +287,31 @@ if (panelToggle && sidePanel) {
   if (window.matchMedia("(max-width: 760px)").matches) {
     setPanelState(true);
   }
+}
+
+if (hotProductPanel) {
+  renderHotProduct(activeHotProduct);
+  window.setInterval(() => {
+    activeHotProduct = (activeHotProduct + 1) % hotProducts.length;
+    renderHotProduct(activeHotProduct);
+  }, 4500);
+}
+
+if (hotProductAdd) {
+  hotProductAdd.addEventListener("click", () => {
+    const product = hotProducts[Number(hotProductAdd.dataset.hotProductAdd || 0)];
+    addProductToCart(product);
+  });
+}
+
+if (hotProductDots) {
+  hotProductDots.addEventListener("click", (event) => {
+    const dot = event.target.closest("[data-hot-product-dot]");
+    if (!dot) return;
+
+    activeHotProduct = Number(dot.dataset.hotProductDot);
+    renderHotProduct(activeHotProduct);
+  });
 }
 
 if (checkoutButton && checkoutNote) {
