@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Al Mahseri Jewellery services for bespoke design, repair, resizing, appraisal, cleaning, and private retail appointments."
+    />
+    <title>Services | Al Mahseri Jewellery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <aside class="left-panel" aria-label="Site navigation">
+      <a class="brand" href="index.html" aria-label="Al Mahseri Jewellery home">
+        <span class="brand-mark">AM</span>
+        <span>Al Mahseri Jewellery</span>
+      </a>
+      <nav class="side-nav">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a class="active" href="services.html">Services</a>
+        <a href="collections.html">Collections</a>
+        <a href="specials.html">Specials</a>
+        <a href="news.html">News</a>
+        <a href="about.html">About</a>
+      </nav>
+      <button class="bag-button" type="button" aria-controls="cart-drawer" aria-expanded="false" data-cart-open>
+        Bag <span data-cart-count>0</span>
+      </button>
+      <small class="side-foot">&copy; <span data-year></span> Al Mahseri</small>
+    </aside>
+
+    <main class="page-shell">
+      <header class="page-hero compact">
+        <p class="eyebrow">Services</p>
+        <h1>Everything a retail jewellery house should provide.</h1>
+        <p>
+          From everyday maintenance to one-of-a-kind commissions, Al Mahseri offers
+          careful in-store service for fine jewellery clients.
+        </p>
+      </header>
+
+      <section class="content-section">
+        <div class="service-grid">
+          <article>
+            <span>01</span>
+            <h2>Bespoke design</h2>
+            <p>Private design guidance for engagement rings, ceremonial sets, and heirloom redesigns.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h2>Repairs</h2>
+            <p>Prong checks, clasp replacement, chain repair, stone tightening, and restoration review.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h2>Ring resizing</h2>
+            <p>Measured fitting and resizing guidance for gold, diamond, and bridal rings.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h2>Cleaning and polishing</h2>
+            <p>Professional cleaning, polishing advice, and routine care for pieces purchased in store.</p>
+          </article>
+          <article>
+            <span>05</span>
+            <h2>Appraisal support</h2>
+            <p>Documentation support for stone details, insurance needs, and high-value jewellery records.</p>
+          </article>
+          <article>
+            <span>06</span>
+            <h2>Private appointment</h2>
+            <p>Quiet consultations for bridal, gifts, high jewellery, and concierge checkout.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="appointment-strip">
+        <div>
+          <p class="eyebrow">Book a visit</p>
+          <h2>Tell us what you need.</h2>
+        </div>
+        <form class="appointment-form" data-appointment-form>
+          <input type="text" name="name" placeholder="Name" required />
+          <input type="email" name="email" placeholder="Email" required />
+          <select name="interest" required>
+            <option value="">Service</option>
+            <option>Bespoke design</option>
+            <option>Repair</option>
+            <option>Resizing</option>
+            <option>Appraisal</option>
+            <option>Private shopping</option>
+          </select>
+          <button class="primary-button" type="submit">Request appointment</button>
+          <p class="form-note" data-appointment-message></p>
+        </form>
+      </section>
+    </main>
+
+    <div class="cart-overlay" data-cart-close></div>
+    <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping bag" aria-hidden="true" data-cart-drawer>
+      <div class="cart-header">
+        <h2>Bag</h2>
+        <button type="button" aria-label="Close bag" data-cart-close>&times;</button>
+      </div>
+      <div class="cart-items" data-cart-items></div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Subtotal</span>
+          <strong data-cart-total>0 JOD</strong>
+        </div>
+        <button class="primary-button" type="button" data-checkout>Checkout enquiry</button>
+        <p class="form-note" data-checkout-note></p>
+      </div>
+    </aside>
+
+    <script src="script.js"></script>
+  </body>
+</html>

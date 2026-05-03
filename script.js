@@ -61,11 +61,9 @@ const cartCount = document.querySelector("[data-cart-count]");
 const cartTotal = document.querySelector("[data-cart-total]");
 const checkoutButton = document.querySelector("[data-checkout]");
 const checkoutNote = document.querySelector("[data-checkout-note]");
-const appointmentForm = document.querySelector("[data-appointment-form]");
-const appointmentMessage = document.querySelector("[data-appointment-message]");
-const newsletterForm = document.querySelector("[data-newsletter-form]");
-const newsletterMessage = document.querySelector("[data-newsletter-message]");
-const year = document.querySelector("[data-year]");
+const appointmentForms = document.querySelectorAll("[data-appointment-form]");
+const newsletterForms = document.querySelectorAll("[data-newsletter-form]");
+const yearTargets = document.querySelectorAll("[data-year]");
 
 const formatCurrency = (value) =>
   new Intl.NumberFormat("en-JO", {
@@ -75,9 +73,8 @@ const formatCurrency = (value) =>
   }).format(value);
 
 function visibleProducts() {
-  const visible = state.filter === "All"
-    ? [...products]
-    : products.filter((product) => product.category === state.filter);
+  const visible =
+    state.filter === "All" ? [...products] : products.filter((product) => product.category === state.filter);
 
   if (state.sort === "price-asc") {
     visible.sort((a, b) => a.price - b.price);
@@ -91,8 +88,12 @@ function visibleProducts() {
 }
 
 function renderProducts() {
+  if (!productGrid) return;
+
   const productsToShow = visibleProducts();
-  resultCount.textContent = `${productsToShow.length} pieces`;
+  if (resultCount) {
+    resultCount.textContent = `${productsToShow.length} pieces`;
+  }
 
   productGrid.innerHTML = productsToShow
     .map(
@@ -115,6 +116,8 @@ function renderProducts() {
 }
 
 function renderCart() {
+  if (!cartCount || !cartItems || !cartTotal) return;
+
   cartCount.textContent = state.cart.reduce((sum, item) => sum + item.quantity, 0);
 
   if (state.cart.length === 0) {
@@ -140,12 +143,14 @@ function renderCart() {
 }
 
 function openCart() {
+  if (!cartDrawer || !cartButton) return;
   document.body.classList.add("cart-open");
   cartDrawer.setAttribute("aria-hidden", "false");
   cartButton.setAttribute("aria-expanded", "true");
 }
 
 function closeCart() {
+  if (!cartDrawer || !cartButton) return;
   document.body.classList.remove("cart-open");
   cartDrawer.setAttribute("aria-hidden", "true");
   cartButton.setAttribute("aria-expanded", "false");
@@ -159,57 +164,71 @@ filterButtons.forEach((button) => {
   });
 });
 
-sortSelect.addEventListener("change", () => {
-  state.sort = sortSelect.value;
-  renderProducts();
-});
+if (sortSelect) {
+  sortSelect.addEventListener("change", () => {
+    state.sort = sortSelect.value;
+    renderProducts();
+  });
+}
 
-productGrid.addEventListener("click", (event) => {
-  const addButton = event.target.closest("[data-add-to-cart]");
-  if (!addButton) return;
+if (productGrid) {
+  productGrid.addEventListener("click", (event) => {
+    const addButton = event.target.closest("[data-add-to-cart]");
+    if (!addButton) return;
 
-  const product = visibleProducts()[Number(addButton.dataset.addToCart)];
-  const existing = state.cart.find((item) => item.name === product.name);
+    const product = visibleProducts()[Number(addButton.dataset.addToCart)];
+    const existing = state.cart.find((item) => item.name === product.name);
 
-  if (existing) {
-    existing.quantity += 1;
-  } else {
-    state.cart.push({ ...product, quantity: 1 });
-  }
+    if (existing) {
+      existing.quantity += 1;
+    } else {
+      state.cart.push({ ...product, quantity: 1 });
+    }
 
-  checkoutNote.textContent = "";
-  renderCart();
-  openCart();
-});
+    if (checkoutNote) checkoutNote.textContent = "";
+    renderCart();
+    openCart();
+  });
+}
 
-cartItems.addEventListener("click", (event) => {
-  const removeButton = event.target.closest("[data-remove-item]");
-  if (!removeButton) return;
+if (cartItems) {
+  cartItems.addEventListener("click", (event) => {
+    const removeButton = event.target.closest("[data-remove-item]");
+    if (!removeButton) return;
 
-  state.cart.splice(Number(removeButton.dataset.removeItem), 1);
-  renderCart();
-});
+    state.cart.splice(Number(removeButton.dataset.removeItem), 1);
+    renderCart();
+  });
+}
 
-cartButton.addEventListener("click", openCart);
+if (cartButton) cartButton.addEventListener("click", openCart);
 cartCloseButtons.forEach((button) => button.addEventListener("click", closeCart));
 
-checkoutButton.addEventListener("click", () => {
-  checkoutNote.textContent =
-    state.cart.length === 0
-      ? "Add a piece before requesting checkout."
-      : "A concierge checkout can be connected to your preferred payment provider.";
+if (checkoutButton && checkoutNote) {
+  checkoutButton.addEventListener("click", () => {
+    checkoutNote.textContent =
+      state.cart.length === 0
+        ? "Add a piece before requesting checkout."
+        : "A concierge checkout can be connected to your preferred payment provider.";
+  });
+}
+
+appointmentForms.forEach((form) => {
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const message = form.querySelector("[data-appointment-message]");
+    form.reset();
+    if (message) message.textContent = "Thank you. A specialist will contact you shortly.";
+  });
 });
 
-appointmentForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  appointmentForm.reset();
-  appointmentMessage.textContent = "Thank you. A specialist will contact you shortly.";
-});
-
-newsletterForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  newsletterForm.reset();
-  newsletterMessage.textContent = "You are subscribed to private previews.";
+newsletterForms.forEach((form) => {
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const message = form.parentElement.querySelector("[data-newsletter-message]");
+    form.reset();
+    if (message) message.textContent = "You are subscribed to private previews.";
+  });
 });
 
 document.addEventListener("keydown", (event) => {
@@ -218,6 +237,8 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-year.textContent = new Date().getFullYear();
+yearTargets.forEach((target) => {
+  target.textContent = new Date().getFullYear();
+});
 renderProducts();
 renderCart();

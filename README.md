@@ -1,13 +1,13 @@
 # Al Mahseri Jewellery
 
-A static luxury e-commerce storefront concept for Al Mahseri Jewellery, focused on gold, diamonds, bridal pieces, and bespoke fine jewellery.
+A static multi-page luxury storefront concept for Al Mahseri Jewellery, focused on gold, diamonds, bridal pieces, bespoke work, and retail jewellery services.
 
 ## Preview
 
-Open `index.html` in a browser to view the website. The page includes:
+Open `index.html` in a browser to view the website. The site includes:
 
-- Luxury landing page and brand positioning
-- Featured collections and product filters
-- Sortable product grid
-- Cart drawer with quantity controls
+- Left-panel navigation across all pages
+- Products catalog with filters, sorting, and cart drawer
+- Retail services for bespoke work, repairs, resizing, appraisals, and aftercare
+- Collections, specials, news, and about pages
 - Appointment request and newsletter forms
