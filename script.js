@@ -64,6 +64,8 @@ const checkoutNote = document.querySelector("[data-checkout-note]");
 const appointmentForms = document.querySelectorAll("[data-appointment-form]");
 const newsletterForms = document.querySelectorAll("[data-newsletter-form]");
 const yearTargets = document.querySelectorAll("[data-year]");
+const panelToggle = document.querySelector("[data-panel-toggle]");
+const sidePanel = document.querySelector("[data-left-panel]");
 
 const formatCurrency = (value) =>
   new Intl.NumberFormat("en-JO", {
@@ -203,6 +205,22 @@ if (cartItems) {
 
 if (cartButton) cartButton.addEventListener("click", openCart);
 cartCloseButtons.forEach((button) => button.addEventListener("click", closeCart));
+
+if (panelToggle && sidePanel) {
+  const setPanelState = (isCollapsed) => {
+    document.body.classList.toggle("panel-collapsed", isCollapsed);
+    panelToggle.setAttribute("aria-expanded", String(!isCollapsed));
+    panelToggle.setAttribute("aria-label", isCollapsed ? "Open navigation panel" : "Collapse navigation panel");
+  };
+
+  panelToggle.addEventListener("click", () => {
+    setPanelState(!document.body.classList.contains("panel-collapsed"));
+  });
+
+  if (window.matchMedia("(max-width: 760px)").matches) {
+    setPanelState(true);
+  }
+}
 
 if (checkoutButton && checkoutNote) {
   checkoutButton.addEventListener("click", () => {

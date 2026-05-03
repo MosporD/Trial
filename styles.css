@@ -54,6 +54,12 @@ img {
   padding-left: var(--panel);
 }
 
+.home-layout {
+  min-height: 100vh;
+  padding-left: var(--panel);
+  transition: padding-left 220ms ease;
+}
+
 .side-panel {
   background: rgba(251, 250, 247, 0.96);
   border-right: 1px solid var(--line);
@@ -65,6 +71,56 @@ img {
   position: fixed;
   width: var(--panel);
   z-index: 20;
+}
+
+.home-panel {
+  transition: transform 220ms ease;
+}
+
+.panel-toggle {
+  align-items: center;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  display: inline-flex;
+  font-size: 0.72rem;
+  font-weight: 800;
+  gap: 0.45rem;
+  letter-spacing: 0.12em;
+  padding: 0.65rem 0.85rem;
+  position: fixed;
+  left: calc(var(--panel) + 1rem);
+  text-transform: uppercase;
+  top: 1rem;
+  transition: left 220ms ease;
+  z-index: 25;
+}
+
+.panel-toggle::before {
+  content: "×";
+  font-size: 1rem;
+  line-height: 1;
+}
+
+body.panel-collapsed .home-panel {
+  transform: translateX(calc(-1 * var(--panel)));
+}
+
+body.panel-collapsed .home-layout {
+  padding-left: 0;
+}
+
+body.panel-collapsed .panel-toggle {
+  left: 1rem;
+}
+
+body.panel-collapsed .panel-toggle::before {
+  content: "☰";
+}
+
+body.has-collapsible-panel .page-shell {
+  transition: padding-left 220ms ease;
 }
 
 .brand {
@@ -166,6 +222,59 @@ img {
 
 .page {
   min-height: 100vh;
+}
+
+.page-shell {
+  min-height: 100vh;
+}
+
+.hero.split-page {
+  display: grid;
+  gap: clamp(2rem, 6vw, 5rem);
+  grid-template-columns: minmax(0, 0.92fr) minmax(280px, 1fr);
+  min-height: 100vh;
+  padding: clamp(3rem, 7vw, 6rem) clamp(1.25rem, 6vw, 5rem);
+}
+
+.hero.split-page > div:first-child {
+  align-self: center;
+  max-width: 700px;
+}
+
+.hero.split-page p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: clamp(1rem, 1.4vw, 1.13rem);
+  line-height: 1.8;
+  margin: 1.5rem 0 0;
+  max-width: 560px;
+}
+
+.link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.text-link {
+  border-bottom: 1px solid var(--ink);
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  padding-bottom: 0.26rem;
+  text-transform: uppercase;
+}
+
+.image-panel {
+  background: var(--soft) center/cover;
+  min-height: 560px;
+}
+
+.image-ring {
+  background-image:
+    linear-gradient(180deg, rgba(27, 24, 20, 0.04), rgba(27, 24, 20, 0.16)),
+    url("https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1200&q=80");
 }
 
 .page-hero,
@@ -584,7 +693,12 @@ body.cart-open .cart-drawer {
     --panel: 0px;
   }
 
-  .layout {
+  body.has-collapsible-panel {
+    --panel: 280px;
+  }
+
+  .layout,
+  .home-layout {
     padding-left: 0;
     padding-top: 148px;
   }
@@ -599,6 +713,14 @@ body.cart-open .cart-drawer {
     padding: 0.9rem 1rem 0;
     right: 0;
     width: auto;
+  }
+
+  .home-panel {
+    transform: none;
+  }
+
+  .panel-toggle {
+    display: none;
   }
 
   .side-nav {
@@ -625,39 +747,103 @@ body.cart-open .cart-drawer {
   }
 
   .page-hero,
-  .split-section {
+  .split-section,
+  .hero.split-page {
     grid-template-columns: 1fr;
   }
 
-  .page-hero {
+  .page-hero,
+  .hero.split-page {
     min-height: auto;
   }
 
   .hero-image,
-  .feature-image {
+  .feature-image,
+  .image-panel {
     min-height: 420px;
   }
 
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  body.has-collapsible-panel .home-layout {
+    padding-left: var(--panel);
+    padding-top: 0;
+  }
+
+  body.has-collapsible-panel.panel-collapsed .home-layout {
+    padding-left: 0;
+  }
+
+  body.has-collapsible-panel .home-panel {
+    border-bottom: 0;
+    border-right: 1px solid var(--line);
+    bottom: 0;
+    display: flex;
+    gap: 2.5rem;
+    grid-template-columns: none;
+    padding: 2rem 1.4rem;
+    right: auto;
+    top: 0;
+    transform: translateX(0);
+    width: var(--panel);
+  }
+
+  body.has-collapsible-panel.panel-collapsed .home-panel {
+    transform: translateX(calc(-1 * var(--panel)));
+  }
+
+  body.has-collapsible-panel .panel-toggle {
+    display: inline-flex;
+  }
+
+  body.has-collapsible-panel .side-nav {
+    display: grid;
+    gap: 0.25rem;
+    grid-column: auto;
+    overflow: visible;
+    padding: 0;
+  }
+
+  body.has-collapsible-panel .side-nav a {
+    flex: initial;
+    padding: 0.7rem 0;
+  }
+
+  body.has-collapsible-panel .side-foot {
+    display: block;
+  }
 }
 
 @media (max-width: 620px) {
-  .layout {
+  .layout,
+  .home-layout {
     padding-top: 142px;
+  }
+
+  body.has-collapsible-panel .home-layout {
+    padding-top: 0;
   }
 
   .brand {
     font-size: 0.68rem;
   }
 
-  .brand-mark {
+  body:not(.has-collapsible-panel) .brand-mark {
     display: none;
+  }
+
+  body.has-collapsible-panel .brand-mark {
+    display: inline-grid;
   }
 
   .side-nav a {
     font-size: 0.66rem;
+  }
+
+  body.has-collapsible-panel .side-nav a {
+    font-size: 0.78rem;
   }
 
   h1 {
@@ -665,7 +851,8 @@ body.cart-open .cart-drawer {
   }
 
   .hero-image,
-  .feature-image {
+  .feature-image,
+  .image-panel {
     min-height: 320px;
   }
 

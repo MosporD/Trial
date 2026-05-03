@@ -16,13 +16,22 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
-    <aside class="side-panel" aria-label="Main navigation">
+  <body class="has-collapsible-panel">
+    <aside class="side-panel home-panel" id="site-navigation" aria-label="Main navigation" data-left-panel="true">
       <a class="brand" href="index.html" aria-label="Al Mahseri Jewellery home">
         <span class="brand-mark">AM</span>
         <span>Al Mahseri<br />Jewellery</span>
       </a>
-      <nav class="side-nav">
+      <button
+        class="panel-toggle"
+        type="button"
+        aria-controls="site-navigation"
+        aria-expanded="true"
+        data-panel-toggle="true"
+      >
+        Menu
+      </button>
+      <nav class="side-nav" aria-label="Pages">
         <a class="active" href="index.html">Home</a>
         <a href="products.html">Products</a>
         <a href="services.html">Services</a>
@@ -37,7 +46,7 @@
       <small class="side-foot">&copy; <span data-year></span> Al Mahseri</small>
     </aside>
 
-    <main class="page-shell">
+    <main class="page-shell home-layout">
       <section class="hero split-page">
         <div>
           <p class="eyebrow">Fine gold and diamonds</p>
