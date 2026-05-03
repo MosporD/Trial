@@ -14,6 +14,7 @@
 }
 
 html {
+  scroll-padding-top: 126px;
   scroll-behavior: smooth;
 }
 
@@ -51,28 +52,24 @@ img {
   align-items: center;
   background: rgba(251, 250, 247, 0.92);
   backdrop-filter: blur(18px);
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 1fr auto 1fr;
-  padding: 1rem clamp(1.25rem, 4vw, 4rem);
-}
-
-.top-panel {
-  background: rgba(251, 250, 247, 0.94);
-  backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--line);
-  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 0.9rem 1rem;
+  grid-template-columns: 1fr auto 1fr;
+  padding: 0.95rem clamp(1.25rem, 4vw, 4rem) 0;
   position: sticky;
   top: 0;
   z-index: 20;
 }
 
-.top-panel nav {
+.top-panel {
+  border-top: 1px solid var(--line);
   display: flex;
   gap: clamp(1.1rem, 3vw, 3rem);
+  grid-column: 1 / -1;
   justify-content: center;
   overflow-x: auto;
-  padding: 0.82rem clamp(1.25rem, 4vw, 4rem);
+  padding: 0.78rem 0;
 }
 
 .top-panel a {
@@ -134,7 +131,7 @@ img {
   display: grid;
   gap: clamp(2rem, 6vw, 5rem);
   grid-template-columns: minmax(0, 0.85fr) minmax(280px, 1fr);
-  min-height: calc(100vh - 119px);
+  min-height: calc(100vh - 126px);
   padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 6vw, 5rem);
 }
 
@@ -198,9 +195,9 @@ h3 {
 }
 
 .section,
-.collections,
+.editorial-section,
 .specials,
-.news,
+.news-section,
 .statement,
 .visit {
   padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 6vw, 5rem);
@@ -599,6 +596,10 @@ body.cart-open .cart-drawer {
     grid-template-columns: 1fr auto;
   }
 
+  .top-panel {
+    justify-content: flex-start;
+  }
+
   .nav-links {
     display: none;
   }
@@ -618,8 +619,12 @@ body.cart-open .cart-drawer {
 }
 
 @media (max-width: 560px) {
+  html {
+    scroll-padding-top: 111px;
+  }
+
   .site-header {
-    padding: 0.85rem 1rem;
+    padding: 0.85rem 1rem 0;
   }
 
   .brand {
@@ -628,6 +633,15 @@ body.cart-open .cart-drawer {
 
   .brand-mark {
     display: none;
+  }
+
+  .top-panel {
+    gap: 1.05rem;
+    padding: 0.72rem 0;
+  }
+
+  .top-panel a {
+    font-size: 0.66rem;
   }
 
   .hero {
