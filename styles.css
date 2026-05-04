@@ -49,12 +49,8 @@ img {
   max-width: 100%;
 }
 
-.layout {
-  min-height: 100vh;
-  padding-left: var(--panel);
-}
-
-.home-layout {
+.layout,
+.page-shell {
   min-height: 100vh;
   padding-left: var(--panel);
   transition: padding-left 220ms ease;
@@ -73,7 +69,7 @@ img {
   z-index: 20;
 }
 
-.home-panel {
+.side-panel {
   transition: transform 220ms ease;
 }
 
@@ -103,11 +99,12 @@ img {
   line-height: 1;
 }
 
-body.panel-collapsed .home-panel {
+body.panel-collapsed .side-panel {
   transform: translateX(calc(-1 * var(--panel)));
 }
 
-body.panel-collapsed .home-layout {
+body.panel-collapsed .layout,
+body.panel-collapsed .page-shell {
   padding-left: 0;
 }
 
@@ -117,10 +114,6 @@ body.panel-collapsed .panel-toggle {
 
 body.panel-collapsed .panel-toggle::before {
   content: "☰";
-}
-
-body.has-collapsible-panel .page-shell {
-  transition: padding-left 220ms ease;
 }
 
 .brand {
@@ -851,7 +844,7 @@ body.cart-open .cart-drawer {
   }
 
   .layout,
-  .home-layout {
+  .page-shell {
     padding-left: 0;
     padding-top: 148px;
   }
@@ -866,10 +859,6 @@ body.cart-open .cart-drawer {
     padding: 0.9rem 1rem 0;
     right: 0;
     width: auto;
-  }
-
-  .home-panel {
-    transform: none;
   }
 
   .panel-toggle {
@@ -920,16 +909,16 @@ body.cart-open .cart-drawer {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  body.has-collapsible-panel .home-layout {
+  body.has-collapsible-panel .page-shell {
     padding-left: var(--panel);
     padding-top: 0;
   }
 
-  body.has-collapsible-panel.panel-collapsed .home-layout {
+  body.has-collapsible-panel.panel-collapsed .page-shell {
     padding-left: 0;
   }
 
-  body.has-collapsible-panel .home-panel {
+  body.has-collapsible-panel .side-panel {
     border-bottom: 0;
     border-right: 1px solid var(--line);
     bottom: 0;
@@ -943,7 +932,7 @@ body.cart-open .cart-drawer {
     width: var(--panel);
   }
 
-  body.has-collapsible-panel.panel-collapsed .home-panel {
+  body.has-collapsible-panel.panel-collapsed .side-panel {
     transform: translateX(calc(-1 * var(--panel)));
   }
 
@@ -971,11 +960,11 @@ body.cart-open .cart-drawer {
 
 @media (max-width: 620px) {
   .layout,
-  .home-layout {
+  .page-shell {
     padding-top: 142px;
   }
 
-  body.has-collapsible-panel .home-layout {
+  body.has-collapsible-panel .page-shell {
     padding-top: 0;
   }
 
