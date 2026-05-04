@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Shop Al Mahseri Jewellery fine rings, necklaces, earrings, bracelets, and bridal pieces."
+    />
+    <title>Products | Al Mahseri Jewellery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="has-collapsible-panel">
+    <aside class="side-panel home-panel" id="site-navigation" aria-label="Primary navigation" data-left-panel="true">
+      <a class="brand" href="index.html" aria-label="Al Mahseri Jewellery home">
+        <span class="brand-mark">AM</span>
+        <span>Al Mahseri Jewellery</span>
+      </a>
+      <button
+        class="panel-toggle"
+        type="button"
+        aria-controls="site-navigation"
+        aria-expanded="true"
+        data-panel-toggle="true"
+      >
+        Menu
+      </button>
+
+      <nav class="side-nav">
+        <a href="index.html">Home</a>
+        <a class="active" href="products.html">Products</a>
+        <a href="services.html">Services</a>
+        <a href="collections.html">Collections</a>
+        <a href="specials.html">Specials</a>
+        <a href="news.html">News</a>
+        <a href="about.html">About</a>
+      </nav>
+
+      <button class="bag-button" type="button" aria-controls="cart-drawer" aria-expanded="false" data-cart-open>
+        Bag <span data-cart-count>0</span>
+      </button>
+      <small class="side-foot">&copy; <span data-year></span> Al Mahseri</small>
+    </aside>
+
+    <main class="page-shell home-layout">
+      <section class="page-hero compact">
+        <p class="eyebrow">Products</p>
+        <h1>Fine jewellery catalog.</h1>
+        <p>
+          A restrained edit of diamond, gold, and bridal pieces available for concierge checkout.
+        </p>
+      </section>
+
+      <section class="content-section">
+        <div class="shop-controls">
+          <div class="filters" aria-label="Filter products">
+            <button class="filter-button active" type="button" data-filter="All">All</button>
+            <button class="filter-button" type="button" data-filter="Rings">Rings</button>
+            <button class="filter-button" type="button" data-filter="Necklaces">Necklaces</button>
+            <button class="filter-button" type="button" data-filter="Earrings">Earrings</button>
+            <button class="filter-button" type="button" data-filter="Bracelets">Bracelets</button>
+          </div>
+
+          <label class="sort-control">
+            Sort
+            <select name="sort" data-sort>
+              <option value="featured">Featured</option>
+              <option value="price-asc">Price: low to high</option>
+              <option value="price-desc">Price: high to low</option>
+            </select>
+          </label>
+        </div>
+
+        <p class="result-count" data-result-count></p>
+        <div class="product-grid" data-product-grid></div>
+      </section>
+    </main>
+
+    <div class="cart-overlay" data-cart-close></div>
+    <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping bag" aria-hidden="true" data-cart-drawer>
+      <div class="cart-header">
+        <h2>Bag</h2>
+        <button type="button" aria-label="Close bag" data-cart-close>&times;</button>
+      </div>
+      <div class="cart-items" data-cart-items></div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Subtotal</span>
+          <strong data-cart-total>0 JOD</strong>
+        </div>
+        <button class="primary-button" type="button" data-checkout>Checkout enquiry</button>
+        <p class="form-note" data-checkout-note></p>
+      </div>
+    </aside>
+
+    <script src="script.js"></script>
+  </body>
+</html>
